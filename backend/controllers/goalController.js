@@ -15,7 +15,11 @@ const setGoal = (req, res) => {
         res.status(404)
         throw new Error('Please add a text field!')
     }
-    res.status(200).json({message: 'ADD OHAHA!'})
+    res.status(200).json({
+        message: 'ADD OHAHA!',
+        isSuccess: 'true',
+        status: 200
+        })
 }
 
 // @desc Update goals
