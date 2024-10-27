@@ -12,5 +12,11 @@
     "url": "m4rkbello"
   },
   "author": "Mark Bello",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.3"
+  }
 }
