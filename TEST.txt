@@ -1,4 +1,5 @@
 FULL-STACK MONGODB, EXPRESSJS, REACTJS, NODEJS
 
-1. INSTALL EXPRESSJS 
-/MERN-STACK/backend/ -> 
+1.INSTALLED FOR BACKEND
+/MERN-STACK/backend/
+->npm i express dotenv mongoose colors
