@@ -1,0 +1,16 @@
+{
+  "name": "mern-stack-self-taught-university",
+  "version": "1.0.0",
+  "description": "TO KNOW HOW TO IMPLEMENT MERN-STACK AS A GASPH",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "m4rkbello"
+  },
+  "author": "Mark Bello",
+  "license": "MIT"
+}
