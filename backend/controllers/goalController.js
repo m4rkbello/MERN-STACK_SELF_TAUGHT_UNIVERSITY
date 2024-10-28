@@ -1,14 +1,14 @@
 // @desc Get goals
 // @route Get /api/goals
 // @access Private
-const getGoals = (req, res) => {
+const getGoals = async(req, res) => {
     res.status(200).json({message: 'Get goals!'})
 }
 
 // @desc Set goals
 // @route POST /api/goal
 // @access Private
-const setGoal = (req, res) => {
+const setGoal = async(req, res) => {
     console.log(req.body)
 
     if(!req.body.text){
@@ -25,7 +25,7 @@ const setGoal = (req, res) => {
 // @desc Update goals
 // @route PUT /api/goals/:id
 // @access Private
-const updateGoal = (req, res) => {
+const updateGoal = async(req, res) => {
     res.status(200).json({message: `Update goal ${req.params.id}`})
 }
 
@@ -33,7 +33,7 @@ const updateGoal = (req, res) => {
 // @desc delete goals
 // @route DELETE /api/goals/:id
 // @access Private
-const deleteGoal = (req, res) => {
+const deleteGoal = async(req, res) => {
     res.status(200).json({message: `Delete goal ${req.params.id}`})
 }
 
