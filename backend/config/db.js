@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const connectDB = async() => {
     try  {
         const conn = await mongoose.connect(process.env.MONGO_URI)
-        console.log(`LIVE MONGODB CONNECTED: ${conn.connection.host}`.lime.underline);
+        console.log(`LIVE MONGODB CONNECTED: ${conn.connection.host}`.orange.underline);
     }catch  (error) {
         console.log(error);
         process.exit(1)
