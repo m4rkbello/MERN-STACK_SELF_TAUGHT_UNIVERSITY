@@ -6,3 +6,4 @@ FULL-STACK MONGODB, EXPRESSJS, REACTJS, NODEJS
 ->npm i -D nodemon 
 2. INSTALL EXPRESS ASYNC-HANDLER 
 ->npm i express-async-handler
+3.SETUP MONGO DB
