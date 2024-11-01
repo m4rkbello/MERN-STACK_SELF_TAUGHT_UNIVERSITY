@@ -7,3 +7,10 @@ FULL-STACK MONGODB, EXPRESSJS, REACTJS, NODEJS
 2. INSTALL EXPRESS ASYNC-HANDLER 
 ->npm i express-async-handler
 3.SETUP MONGO DB
+
+4. INSTALL BCRYPTJS 
+->cd /projects/mern-stack/backend
+->npm i bcryptjs
+
+5. INSTALL JWT OR JSONWEBTOKEN
+->npm i jsonwebtoken
