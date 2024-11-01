@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 //schema
-const goalSchema = mongoose.Schema(
+const userSchema = mongoose.Schema(
     {
         name: {
             type: String,
