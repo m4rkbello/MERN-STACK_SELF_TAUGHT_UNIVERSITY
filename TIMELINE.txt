@@ -21,3 +21,6 @@ FULL-STACK MONGODB, EXPRESSJS, REACTJS, NODEJS
 7. INSTALL REACT-ROUTER-DOM
     ->npm i react-router-dom
 
+
+8. INSTALL REACT-ICONS 
+    ->npm i react-icons
