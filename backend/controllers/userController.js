@@ -24,14 +24,15 @@ const registerUser = asyncHandler(async (req, res) => {
     }
 
     //hash-password gamit BYCRIPTJS 
-    const salt = await bcrypt.genSalt(10)
+    const salt = await bcrypt.genSalt(12)
     const hashedPassword = await bcrypt.hash(password, salt)
 
     //create user
     const user = await User.create({
         name,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        token: generateToken(user._id)
     })
 
     if(user)   {
@@ -40,7 +41,7 @@ const registerUser = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
         })
-    }else{
+    }else  {
         res.status(400)
         throw new Error('Invalid user data!')
     }
@@ -61,12 +62,12 @@ const loginUser = asyncHandler(async (req, res) => {
             _id: user.id,
             name: user.name,
             email: user.email,
+            token: generateToken(user._id)
         })
     } else{
         res.status(400)
         throw new Error('Invalid credentials')
     }
-
 })
 
 // @desc get user data
@@ -75,6 +76,13 @@ const loginUser = asyncHandler(async (req, res) => {
 const getMe = asyncHandler(async (req, res) => {
     res.status(200).json({message:"USER AUTHENTICATED"})
 })
+
+//GENERATE JWT
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: '1d',
+    })
+}
 
 
 module.exports = {
