@@ -14,3 +14,10 @@ FULL-STACK MONGODB, EXPRESSJS, REACTJS, NODEJS
 
 5. INSTALL JWT OR JSONWEBTOKEN
 ->npm i jsonwebtoken
+
+6. INSTALL FRONTEND USING CREATE-REACT-APP@LATEST --TEMPLATE, REDUX
+    ->npx create-react-app@latest . --template redux
+
+7. INSTALL REACT-ROUTER-DOM
+    ->npm i react-router-dom
+
