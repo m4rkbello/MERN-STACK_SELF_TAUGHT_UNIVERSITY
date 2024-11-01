@@ -8,7 +8,7 @@ function Header() {
         <header className='header'>
             <div className='logo'>
                 <Link to='/'>
-                    MERN GoalSetter
+                    MERN
                 </Link>
             </div>
         <ul>
