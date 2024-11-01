@@ -72,7 +72,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 // @desc get user data
 // @route get /api/users/me
-// @access Public
+// @access Private
 const getMe = asyncHandler(async (req, res) => {
     res.status(200).json({message:"USER AUTHENTICATED"})
 })
