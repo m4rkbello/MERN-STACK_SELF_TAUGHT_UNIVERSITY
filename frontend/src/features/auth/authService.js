@@ -14,9 +14,15 @@ const registerUser = async (userData) => {
     return response
 }
 
+//Logout User
+const logout = () => {
+    localStorage.removeItem('user')
+}
+
 //wrapping as authService
 const authService = {
-    registerUser
+    registerUser,
+    logout
 }
 
 
