@@ -25,6 +25,12 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
 })
 
 
+//Destroy localStorage for logout
+export const logout = createAsyncThunk('auth/logout', async () => {
+    await authService.logout()
+})
+
+
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
