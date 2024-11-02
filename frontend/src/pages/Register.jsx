@@ -19,6 +19,7 @@ function Register() {
         confirm_password: '',
     })
 
+    //Destructuring
     const { name, email, password, confirm_password } = formData
 
     const redirectTo = useNavigate()
