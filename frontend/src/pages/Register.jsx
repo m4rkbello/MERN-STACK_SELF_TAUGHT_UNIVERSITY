@@ -1,5 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+//REDUXISM
+import { register, reset } from '../features/auth/authSlice'
+//COMPONENTS
+import Spinner from '../components/Spinner'
+//ICONS
 import { FaUser } from 'react-icons/fa'
 
 
@@ -13,6 +21,11 @@ function Register() {
 
     const { name, email, password, confirm_password } = formData
 
+    const redirectTo = useNavigate()
+    const dispatch = useDispatch()
+
+    const {user, isLoading, isError, isSuccess, message} =  useSelector((state) => state.auth)
+
     const handleChangeFormData = (e) => {
         setFormData((prevState) => ({
             ...prevState,
@@ -20,9 +33,40 @@ function Register() {
         }))
     }
 
+    //bantay
+    useEffect(() => {
+        if(isError) {
+            toast.error(message)
+        }
+
+        if(isSuccess || user)  {
+            redirectTo('/')
+        }
+
+        dispatch(reset())
+
+    },[user, isError, isSuccess, message, redirectTo, dispatch])
+
     const handleRegisterSubmit = (e) => {
         e.preventDefault()
 
+        //check if match ang password
+        if(password !== confirm_password){
+            toast.error('Password do not match!')
+        }else{
+            const userData = {
+                name,
+                email,
+                password
+            }
+
+            dispatch(register(userData))
+        }
+    }
+
+    //spinner or loading 
+    if(isLoading){
+        return <Spinner />
     }
 
     return <>
