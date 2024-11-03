@@ -6,9 +6,9 @@ import { toast } from 'react-toastify'
 
 function GoalForm() {
 
-    const handleFormSubmit = e => {
-        e.preventDefault()
-    }
+  const handleFormSubmit = e => {
+    e.preventDefault()
+  }
 
 
   return <section className='form'>
@@ -17,7 +17,7 @@ function GoalForm() {
     </form>
 
   </section>
-  
+
 }
 
 export default GoalForm
