@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import {createGOal} from '../features/goals/goalSlice'
+import {createGoal} from '../features/goals/goalSlice'
 
 function GoalForm() {
   const [text, setText] = useState('')
@@ -23,14 +24,22 @@ function GoalForm() {
   return <section className='form'>
     <div className='form-group'>
 
-    <form onSubmit='handleFormSubmit'>
+    <form onSubmit={handleOnSubmitAddGoal}>
+  <label htmlFor='text'>Goal</label>
+  <input
+    type='text'
+    name='text'
+    id='text'
+    value={text}
+    onChange={(e) => setText(e.target.value)}
+  />
+  <div className='form-group'>
+    <button className='btn btn-block' type='submit'>
+      Add Goal
+    </button>
+  </div>
+</form>
 
-      <label htmlFor='text'>Goal</label>
-      <input type='text' name='text' id='text' value={text} onChange={(e) => setText()}  />
-    </form>
-    </div>
-    <div className='form-group'>
-      <button className='btn btn-block' type='submit'>Add Goal</button>
     </div>
 
   </section>
