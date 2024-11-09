@@ -68,7 +68,7 @@ function Login() {
             <h1>
                 <FaSignInAlt />Login
             </h1>
-            <p>Login</p>
+            <p>Please login here.</p>
         </section>
         <section className='form'>
             <form onSubmit={handleLoginSubmit}>
