@@ -8,6 +8,7 @@ import { register, reset } from '../features/auth/authSlice'
 //COMPONENTS
 import Spinner from '../components/Spinner'
 import GoalForm from '../components/GoalForm'
+import GoalItem from '../components/GoalItem'
 //ICONS
 import { FaUser } from 'react-icons/fa'
 import { getGoals, resetGoals } from '../features/goals/goalSlice'
@@ -17,17 +18,17 @@ function Dashboard() {
   const redirectTo = useNavigate()
   const dispatch = useDispatch()
 
-  const {user} = useSelector((state) => state.auth)
-  const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
+  const { user } = useSelector((state) => state.auth)
+  const { goals, isLoading, isError, message } = useSelector((state) => state.goals)
 
   useEffect(() => {
     //check if naay mga errors
-    if(isError) {
+    if (isError) {
       console.log(message);
     }
 
     //e check if dili user ebalik sa route - /login
-    if(!user) {
+    if (!user) {
       redirectTo('/login')
     }
     console.log(user);
@@ -37,21 +38,34 @@ function Dashboard() {
     return () => {
       dispatch(reset)
     }
-  },[user, redirectTo, isError, message, dispatch])
+  }, [user, redirectTo, isError, message, dispatch])
 
   //awaits - pending - loading
-  if(isLoading) {
+  if (isLoading) {
     return <Spinner />
   }
 
   return (
     <>
-    <section className="heading">
-      <h1>Welcome {user ? user.name : ''}</h1>
-      <h4>{user ? user.email : ''}</h4>
-      <p>TODO-MERN Dashboard</p>
-    </section>
-    <GoalForm />
+      <section className="heading">
+        <h1>Welcome {user ? user.name : ''}</h1>
+        <h4>{user ? user.email : ''}</h4>
+        <p>TODO-MERN Dashboard</p>
+      </section>
+      <GoalForm />
+      <section className='content'>
+        {goals.length > 0 ? (
+          <div className="goals">
+{goals.map((goal) => (
+  <GoalItem key={goal._id} goal={goal} />
+))}
+          </div>
+        ) : (
+          <h3>
+            You haven't set any goals!
+          </h3>
+        )}
+      </section>
     </>
   )
 }
