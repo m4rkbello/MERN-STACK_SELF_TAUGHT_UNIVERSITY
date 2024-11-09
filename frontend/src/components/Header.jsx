@@ -24,7 +24,7 @@ function Header() {
             <div className='logo'>
                 <Link to='/'>
                     <h1>
-                    TODO-MERN
+                    POMODORO-MERN
                     </h1>
                 </Link>
             </div>
