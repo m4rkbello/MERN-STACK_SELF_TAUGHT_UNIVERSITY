@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const API_URL = '/api/goals/'
 
-//create new goal or add new goal
+//Method - POST request - create new goal or add new goal
 const createGoal = async (goalData, token) => {
     try {
         const config = {
@@ -20,8 +20,7 @@ const createGoal = async (goalData, token) => {
     }
 }
 
-
-//get all goals or fetch all goals
+//Method - GET request - get all goals or fetch all goals
 const getGoals = async (goalData, token) => {
     try {
         const config = {
@@ -40,10 +39,30 @@ const getGoals = async (goalData, token) => {
 }
 
 
+//Method - DELETE request - get all goals or fetch all goals
+const deleteGoal = async (goalId, token) => {
+    try {
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+
+        const response = await axios.delete(API_URL + goalId, config);
+        console.log('Response:', response);  // Log the response to see if it's successful
+        return response.data;
+    } catch (error) {
+        console.error('Error posting goal:', error);
+        throw error;  // Rethrow or handle error as needed
+    }
+}
+
+
 
 const goalService = {
     createGoal,
     getGoals,
+    deleteGoal,
 }
 
 export default goalService
