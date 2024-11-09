@@ -9,7 +9,6 @@ import {createGoal} from '../features/goals/goalSlice'
 function GoalForm() {
   const [text, setText] = useState('')
 
-
   //ADD useDispatch of react-redux to pass the data on it's action
   const dispatch = useDispatch()
 
@@ -19,7 +18,6 @@ function GoalForm() {
     dispatch(createGoal({text}))
     setText('')
   }
-
 
   return <section className='form'>
     <div className='form-group'>
@@ -39,9 +37,7 @@ function GoalForm() {
     </button>
   </div>
 </form>
-
     </div>
-
   </section>
 
 }
