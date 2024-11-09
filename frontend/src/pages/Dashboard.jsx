@@ -10,21 +10,39 @@ import Spinner from '../components/Spinner'
 import GoalForm from '../components/GoalForm'
 //ICONS
 import { FaUser } from 'react-icons/fa'
+import { getGoals, resetGoals } from '../features/goals/goalSlice'
 
 function Dashboard() {
 
   const redirectTo = useNavigate()
+  const dispatch = useDispatch()
 
   const {user} = useSelector((state) => state.auth)
-
+  const {goals, isLoading, isError, message} = useSelector((state) => state.goals)
 
   useEffect(() => {
+    //check if naay mga errors
+    if(isError) {
+      console.log(message);
+    }
+
+    //e check if dili user ebalik sa route - /login
     if(!user) {
       redirectTo('/login')
     }
-
     console.log(user);
-  },[user, redirectTo])
+
+    dispatch(getGoals())
+
+    return () => {
+      dispatch(reset)
+    }
+  },[user, redirectTo, isError, message, dispatch])
+
+  //awaits - pending - loading
+  if(isLoading) {
+    return <Spinner />
+  }
 
   return (
     <>
