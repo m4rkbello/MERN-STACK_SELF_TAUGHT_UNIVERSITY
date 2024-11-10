@@ -27,12 +27,15 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
 //Login User
 export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     try {
-        return await authService.loginUser(user)
-    } catch(error) {
-        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
-        return thunkAPI.rejectWithValue(message)
+        const response = await authService.loginUser(user);
+        localStorage.setItem('user', JSON.stringify(response.data));  // Save user in localStorage
+        return response.data;
+    } catch (error) {
+        const message = error.response?.data?.message || error.message || error.toString();
+        return thunkAPI.rejectWithValue(message);
     }
-})
+});
+
 
 
 //Destroy localStorage for logout
