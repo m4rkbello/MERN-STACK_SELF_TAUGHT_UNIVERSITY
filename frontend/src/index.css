@@ -188,7 +188,7 @@ h3 {
   border: 8px solid;
   border-color: #000 transparent #555 transparent;
   border-radius: 50%;
-  animation: spin 1.2s linear infinite;
+  animation: spin 3.0s linear infinite;
 }
 
 @keyframes spin {
