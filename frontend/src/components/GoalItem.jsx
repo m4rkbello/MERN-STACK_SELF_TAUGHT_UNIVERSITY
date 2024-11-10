@@ -9,11 +9,6 @@ function GoalItem({ goal }) {
 
 const dispatch = useDispatch()
 
-const deleteGoal = () => {
-
-}
-
-
   return (
     <div className='goal'>
       <div>
